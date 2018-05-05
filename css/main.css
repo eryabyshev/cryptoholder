@@ -186,3 +186,125 @@ ltcColor{
 
 
 
+/*adder styles*/
+
+
+
+.adder{
+    border: 2px solid #3d4347;
+    background-color: #282f34;
+    height: 120px;
+    border-radius: 7px;
+    width: 95%;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.adder:hover{
+    border: 3px solid #3d4347;
+    width: 98%;
+    transition: all 0.4s ease-in-out;
+}
+
+
+.newAddress{
+    font-size: 1.5em;
+    float:left;
+    margin-top: 40px;
+    width: 700px;
+    margin-left: 100px;
+}
+
+
+
+
+
+
+
+
+
+
+.ch-item {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: relative;
+    cursor: default;
+
+    float:right;
+    margin-right: 200px;
+    margin-top: 10px;
+}
+
+.ch-info-wrap,
+.ch-info{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.ch-info-wrap {
+    background: #282f34 url(../img/add.png);
+    background-size: 100%;
+
+
+}
+
+.ch-info > div {
+    display: block;
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-position: center center;
+
+}
+
+
+
+.ch-info .ch-info-back {
+    opacity: 0;
+
+    background: #282f34;
+    pointer-events: none;
+
+    transform: scale(1.5);
+
+    transition: all 0.1s ease-in-out 0.1s;
+}
+
+
+
+.ch-info h1 {
+    color: #000000;
+    /*text-transform: uppercase;*/
+    letter-spacing: 2px;
+    font-size: 2em;
+    margin: -6px 38px;
+
+    padding: 40px 0 0 0;
+    height: 80px;
+    font-family: Arial, sans-serif;
+    text-shadow:
+            0 0 1px #000000,
+            0 1px 2px aliceblue;
+}
+
+.ch-item:active .ch-info-front {
+    transform: scale(0);
+
+    opacity: 0;
+}
+
+.ch-item:active .ch-info-back {
+    transform: scale(1);
+
+    opacity: 1;
+    pointer-events: auto;
+}
+
+
+
+
+
