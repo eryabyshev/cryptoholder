@@ -3,6 +3,7 @@ body{
     width: 100%;
     background-color: #313335;
     margin: 0;
+
 }
 
 header{
@@ -43,6 +44,8 @@ header{
     background-repeat: no-repeat;
     margin: auto;
     margin-top: 2%;
+    cursor: pointer;
+
 }
 
 .centerWrapper{
@@ -57,6 +60,7 @@ header{
 
 .contextShow{
     display: inline-block;
+    cursor: pointer;
 }
 
 .sub-menu{
@@ -74,6 +78,7 @@ header{
     vertical-align: center;
     margin: auto;
     color: aliceblue;
+    cursor: pointer;
 
 }
 
@@ -86,6 +91,7 @@ header{
     max-width: 241px;
     color: aliceblue;
     margin-top: 10px;
+    transition: opacity .3s, max-height .3s;
 }
 
 .button{
@@ -93,6 +99,21 @@ header{
     height: 30px;
     border: 1px solid aliceblue;
     padding: 3px;
+    cursor: pointer;
+}
+
+.button:active{
+    border: 1px solid black;
+    color: black;
+}
+
+.load:focus{
+    border-color: #313335;
+}
+
+
+li{
+    margin-bottom: 10px;
 }
 
 
