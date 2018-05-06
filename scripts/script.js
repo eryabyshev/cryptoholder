@@ -44,14 +44,6 @@
 
 
 
-    //menu handlers
-    menu.addEventListener("mouseover", showMenu);
-
-    menu.addEventListener("click", showMenu);
-
-    falldown.addEventListener("click", showContext);
-
-
     var itBtc = function(address){
         if(address.length === 34 && Number(address[0])){
             return true;
@@ -149,9 +141,9 @@
 
     var addNewBlock = function(){
 
-        addressInput.setAttribute('placeholder', 'Введите номер кошелька (BTC, ETH, DASH, LTC)');
 
         if(!addressInput.value){
+            addressInput.setAttribute('placeholder', 'Ошибка! Введите адрес кошелька (BTC, ETH, DASH, LTC)');
             return;
         }
 
@@ -161,7 +153,8 @@
 
         if(!currency){
             addressInput.value = "";
-            addressInput.setAttribute('placeholder', 'Ошибка! Введите номер кошелька (BTC, ETH, DASH, LTC)');
+            addressInput.setAttribute('placeholder', 'Ошибка! Введите адрес кошелька (BTC, ETH, DASH, LTC)');
+            return;
         }
 
         var walletName = addressInput.value.split(" ")[1];
@@ -171,6 +164,12 @@
         }
 
         var balanceObj = JSON.parse(httpGet("https://api.blockcypher.com/v1/" + currency + "/main/addrs/" + address));
+
+        if(!balanceObj.final_balance){
+            addressInput.value = "";
+            addressInput.setAttribute('placeholder', 'Ошибка! Неверный адрес кошелька (BTC, ETH, DASH, LTC)');
+            return;
+        }
 
         var balance = 0;
 
@@ -189,8 +188,8 @@
 
         main.innerHTML += block;
 
-
-
+        addressInput.value = "";
+        addressInput.setAttribute('placeholder', 'Введите адрес кошелька (BTC, ETH, DASH, LTC)');
     };
 
 
