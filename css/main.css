@@ -1,11 +1,22 @@
 
 .information{
-
     height: 100px;
     border-radius: 7px;
     width: 95%;
     margin: auto;
     margin-top: 20px;
+}
+
+.Down{
+    margin-top: 100px;
+}
+
+.DownDown{
+    margin-top: 250px;
+}
+
+.Up{
+    margin-top: 0px;
 }
 
 
@@ -23,7 +34,7 @@
 }
 
 
-.currencyRBtc:active {
+.currencyRbtc:active {
     box-shadow: inset 0 0 0 110px rgba(200, 95, 66, 0.4),
     inset 0 0 0 16px rgba(255, 255, 255, 0.8),
     0 1px 2px rgba(0, 0, 0, 0.1);
@@ -42,7 +53,7 @@
             0 1px 2px rgba(0,0,0,0.1);
 }
 
-.currencyRDash:active {
+.currencyRdash:active {
     box-shadow: inset 0 0 0 110px #275e8c,
     inset 0 0 0 16px #278ee5,
     0 1px 2px rgba(0, 0, 0, 0.1);
@@ -63,7 +74,7 @@
 }
 
 
-.currencyREth:active {
+.currencyReth:active {
     box-shadow: inset 0 0 0 110px #7f8385,
     inset 0 0 0 16px #d8d8d8,
     0 1px 2px rgba(0, 0, 0, 0.1);
@@ -82,7 +93,7 @@ ltcColor{
             0 1px 2px rgba(0,0,0,0.1);
 }
 
-.currencyRLtc:active {
+.currencyRltc:active {
     box-shadow: inset 0 0 0 110px #6b6e70,
     inset 0 0 0 16px #aeaeae,
     0 1px 2px rgba(0, 0, 0, 0.1);
@@ -91,7 +102,9 @@ ltcColor{
 
 
 .information:hover{
-    border: 3px solid #ff9900;
+    border-style: solid;
+    border-width: 3px;
+
     width: 98%;
     transition: all 0.4s ease-in-out;
 }
@@ -141,19 +154,19 @@ ltcColor{
     height: 100px;
 }
 
-.currencyRBtc {
+.currencyRbtc {
     background-image: url(../img/btcR.png);
 }
 
-.currencyRLtc {
+.currencyRltc {
     background-image: url(../img/ltcR.png);
 }
 
-.currencyREth {
+.currencyReth {
     background-image: url(../img/ethR.png);
 }
 
-.currencyRDash {
+.currencyRdash {
     background-image: url(../img/dashR.png);
 }
 
@@ -165,20 +178,20 @@ ltcColor{
 }
 
 
-.currencyBtc{
+.currencybtc{
     background-image: url(../img/btc.png);
 
 }
 
-.currencyLtc{
+.currencyltc{
     background-image: url(../img/ltc.png);
 }
 
-.currencyDash{
+.currencydash{
     background-image: url(../img/dash.png);
 }
 
-.currencyEth{
+.currencyeth{
     background-image: url(../img/eth.png);
 }
 
@@ -211,7 +224,7 @@ ltcColor{
     font-size: 1.5em;
     float:left;
     margin-top: 40px;
-    width: 700px;
+    width: 800px;
     margin-left: 100px;
 }
 
@@ -276,20 +289,20 @@ ltcColor{
 
 
 
-.ch-info h1 {
-    color: #000000;
-    /*text-transform: uppercase;*/
-    letter-spacing: 2px;
-    font-size: 2em;
-    margin: -6px 38px;
+/*.ch-info h1 {*/
+    /*color: #000000;*/
+    /*!*text-transform: uppercase;*!*/
+    /*letter-spacing: 2px;*/
+    /*font-size: 2em;*/
+    /*margin: -6px 38px;*/
 
-    padding: 40px 0 0 0;
-    height: 80px;
-    font-family: Arial, sans-serif;
-    text-shadow:
-            0 0 1px #000000,
-            0 1px 2px aliceblue;
-}
+    /*padding: 40px 0 0 0;*/
+    /*height: 80px;*/
+    /*font-family: Arial, sans-serif;*/
+    /*text-shadow:*/
+            /*0 0 1px #000000,*/
+            /*0 1px 2px aliceblue;*/
+/*}*/
 
 .ch-item:active .ch-info-front {
     transform: scale(0);
