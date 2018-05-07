@@ -1,11 +1,5 @@
 
-.information{
-    height: 100px;
-    border-radius: 7px;
-    width: 95%;
-    margin: auto;
-    margin-top: 20px;
-}
+
 
 .Down{
     margin-top: 100px;
@@ -23,85 +17,65 @@
 .btc{
     background-color: #926319;
     border: 2px solid #ff9900;
+    color: #ff9900;
 }
 
-
-.btcColor{
-    box-shadow:
-            inset 0 0 0 0 #926319,
-            inset 0 0 0 16px #ff9900,
-            0 1px 2px rgba(0,0,0,0.1);
-}
-
-
-.currencyRbtc:active {
-    box-shadow: inset 0 0 0 110px rgba(200, 95, 66, 0.4),
-    inset 0 0 0 16px rgba(255, 255, 255, 0.8),
-    0 1px 2px rgba(0, 0, 0, 0.1);
+.btcLogo{
+    background-image: url("../img/btc .png");
+    background-size: 100%;
 }
 
 
 .dash{
     background-color: #275e8c;
     border: 2px solid #278ee5;
+    color:#278ee5;
 }
 
-.dashColor{
-    box-shadow:
-            inset 0 0 0 0 #275e8c;,
-            inset 0 0 0 16px #278ee5;,
-            0 1px 2px rgba(0,0,0,0.1);
+.dashLogo{
+    background-image: url("../img/dash.png");
+    background-size: 100%;
 }
 
-.currencyRdash:active {
-    box-shadow: inset 0 0 0 110px #275e8c,
-    inset 0 0 0 16px #278ee5,
-    0 1px 2px rgba(0, 0, 0, 0.1);
-}
 
 
 .eth{
     background-color: #7f8385;
     border: 2px solid #d8d8d8;
+    color:#d8d8d8
+}
+
+.ethLogo{
+    background-image: url("../img/eth.png");
+    background-size: 100%;
 }
 
 
-.ethColor{
-    box-shadow:
-            inset 0 0 0 0 #7f8385,
-            inset 0 0 0 16px #d8d8d8,
-            0 1px 2px rgba(0,0,0,0.1);
-}
 
 
-.currencyReth:active {
-    box-shadow: inset 0 0 0 110px #7f8385,
-    inset 0 0 0 16px #d8d8d8,
-    0 1px 2px rgba(0, 0, 0, 0.1);
-}
-
-ltc{
+.ltc{
     background-color: #6b6e70;
     border: 2px solid #aeaeae;
+    color: #aeaeae;
 }
 
-
-ltcColor{
-    box-shadow:
-            inset 0 0 0 0 #6b6e70,
-            inset 0 0 0 16px #aeaeae,
-            0 1px 2px rgba(0,0,0,0.1);
-}
-
-.currencyRltc:active {
-    box-shadow: inset 0 0 0 110px #6b6e70,
-    inset 0 0 0 16px #aeaeae,
-    0 1px 2px rgba(0, 0, 0, 0.1);
+.ltcLogo{
+    background-image: url("../img/ltc.png");
+    background-size: 100%;
 }
 
 
 
-.information:hover{
+.block{
+    height: 100px;
+    border-radius: 7px;
+    width: 95%;
+    margin: auto;
+    margin-top: 20px;
+    font-size: 1.2em;
+}
+
+.block:hover{
     border-style: solid;
     border-width: 3px;
 
@@ -110,90 +84,68 @@ ltcColor{
 }
 
 
-.information img{
-    display: block;
-    height: 100px;
+.currencyLogo{
+    height: 96px;
+    width: 96px;
     float: left;
     margin-left: 2%;
-}
-
-.more{
-    float: left;
-    font-size: 1.3em;
-    color: aliceblue;
-    margin-left: 30px;
+    margin-top: 2px;
 }
 
 .money{
     margin-top: 10px;
-    float: right;
-    margin-left: 300px ;
+    float: left;
+    margin-right: 200px;
+
 }
 
 .info{
-    float:left;
+    float: left;
     margin-top: 10px;
+    width: 500px;
+    margin-left: 70px;
 }
 
+.br1{
+    font-size: 50px;
+}
 
+.br2{
+    font-size: 27px;
+}
+
+.delta{
+    color: green;
+}
 
 
 .refresh {
     float: right;
-    margin-right:2%;
-    border-radius: 50%;
-    position: relative;
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
-}
-
-
-.currency {
+    margin-right: 2%;
+    background-image: url(../img/reload.png);
     background-size: 100%;
-    width: 100px;
-    height: 100px;
+    width: 50px;
+    height: 50px;
+    margin-top: 25px;
+    cursor: pointer;
 }
 
-.currencyRbtc {
-    background-image: url(../img/btcR.png);
+.refresh:hover{
+    transform: rotate(-360deg) scale(1.2);
+    transform:rotate(-360deg);
+    -ms-transform:rotate(-360deg); /* IE 9 */
+    -moz-transform:rotate(-360deg); /* Firefox */
+    -webkit-transform:rotate(-360deg); /* Safari and Chrome */
+    -o-transform:rotate(-360deg); /* Opera */
+    transition: all 0.5s ease-in-out;
 }
 
-.currencyRltc {
-    background-image: url(../img/ltcR.png);
-}
-
-.currencyReth {
-    background-image: url(../img/ethR.png);
-}
-
-.currencyRdash {
-    background-image: url(../img/dashR.png);
-}
-
-
-.location{
-    display: block;
-    float: left;
-    margin-left: 2%;
+.refresh:active{
+    margin-top: 27px;
+    transition: all 0.3s ease-in-out;
 }
 
 
-.currencybtc{
-    background-image: url(../img/btc.png);
-
-}
-
-.currencyltc{
-    background-image: url(../img/ltc.png);
-}
-
-.currencydash{
-    background-image: url(../img/dash.png);
-}
-
-.currencyeth{
-    background-image: url(../img/eth.png);
-}
 
 
 
@@ -228,94 +180,44 @@ ltcColor{
     margin-left: 100px;
 }
 
-
-
-
-
-
-
-
-
-
-.ch-item {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    position: relative;
-    cursor: default;
-
-    float:right;
-    margin-right: 200px;
-    margin-top: 10px;
-}
-
-.ch-info-wrap,
-.ch-info{
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-}
-
-.ch-info-wrap {
-    background: #282f34 url(../img/add.png);
+.plus{
+    float: left;
+    margin-left: 100px;
+    background-image: url(../img/plus.png);
     background-size: 100%;
-
-
-}
-
-.ch-info > div {
-    display: block;
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    background-position: center center;
-
+    width: 50px;
+    height: 50px;
+    margin-top: 33px;
+    cursor: pointer;
 }
 
 
+.plus:hover{
+    transform: rotate(-360deg) scale(1.2);
+    transform:rotate(-360deg);
+    -ms-transform:rotate(-360deg); /* IE 9 */
+    -moz-transform:rotate(-360deg); /* Firefox */
+    -webkit-transform:rotate(-360deg); /* Safari and Chrome */
+    -o-transform:rotate(-360deg); /* Opera */
+    transition: all 0.5s ease-in-out;
+}
 
-.ch-info .ch-info-back {
-    opacity: 0;
-
-    background: #282f34;
-    pointer-events: none;
-
-    transform: scale(1.5);
-
-    transition: all 0.1s ease-in-out 0.1s;
+.plus:active{
+    margin-top: 27px;
+    transition: all 0.3s ease-in-out;
 }
 
 
 
-/*.ch-info h1 {*/
-    /*color: #000000;*/
-    /*!*text-transform: uppercase;*!*/
-    /*letter-spacing: 2px;*/
-    /*font-size: 2em;*/
-    /*margin: -6px 38px;*/
 
-    /*padding: 40px 0 0 0;*/
-    /*height: 80px;*/
-    /*font-family: Arial, sans-serif;*/
-    /*text-shadow:*/
-            /*0 0 1px #000000,*/
-            /*0 1px 2px aliceblue;*/
-/*}*/
 
-.ch-item:active .ch-info-front {
-    transform: scale(0);
 
-    opacity: 0;
-}
 
-.ch-item:active .ch-info-back {
-    transform: scale(1);
 
-    opacity: 1;
-    pointer-events: auto;
-}
+
+
+
+
 
 
 

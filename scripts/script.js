@@ -10,36 +10,12 @@
         main = doc.querySelector('.main'),
 
 
-        addButton = doc.querySelector('#add'),
+        addButton = doc.querySelector('.plus'),
         addressInput = doc.querySelector('.newAddress');
 
 
 
-    //show or hid submenu
-    var showMenu = function () {
-        if(subMenu.getAttribute('class') === 'sub-menu-show'){
-            subMenu.setAttribute('class', 'sub-menu');
-            main.setAttribute('class', 'Up');
-        }
-        else{
-            subMenu.setAttribute('class', 'sub-menu-show');
-            main.setAttribute('class', 'Down');
-        }
-    };
 
-
-    //show or hid context
-    var showContext = function(){
-
-        if(context.getAttribute('class') === 'context'){
-            context.setAttribute('class', 'contextShow');
-            main.setAttribute('class', 'DownDown');
-        }
-        else{
-            context.setAttribute('class', 'context');
-            main.setAttribute('class', 'Down');
-        }
-    };
 
 
 
@@ -101,33 +77,23 @@
 
     var crateBlock = function (currency,balance, inDollar, number, walletName ) {
 
-        var block =
-            "<div class = 'information " + currency + "'>\n" +
-            "\n" +
-            "            <div class = 'currency" + currency + " currency location'></div>\n" +
-            "            <div class=\"more\">\n" +
-            "\n" +
-            "                <div class = 'money'>\n" +
-            "                    <span class = 'balanc'>" + balance + " " + currency + "</span><br><br>\n" +
-            "                    <span class ='dollar'>" + inDollar + "$</span>\n" +
-            "                </div>\n" +
-            "\n" +
-            "\n" +
-            "                <div class = 'info'>\n" +
-            "                    <span class='name'>" + walletName + "</span><br><br>\n" +
-            "                    <span class='number'>" + number + "</span>\n" +
-            "\n" +
-            "                </div>\n" +
-            "\n" +
-            "\n" +
+        var block = "<div class = 'block " + currency + "'>\n" +
+            "            <div class = 'currencyLogo " + currency +"Logo'></div>\n" +
+            "            <div class = 'info'>\n" +
+            "                <span class='name'>"+ walletName +"</span><br class = \"br1\">\n" +
+            "                <span class='number'>" + number +"</span>\n" +
+            "            </div>\n" +
+            "            <div class = 'money'>\n" +
+            "                <span class = 'balanc'>" + balance.toString().substring(0, 7) + " "
+                                                            + currency.toUpperCase() + "</span><br class=\"br2\">\n" +
+
+            "                <span class ='dollar'>" + inDollar.toString().split('.')[0] + " " + " $</span><br class=\"br2\">\n" +
+            "                <span class = 'delta'>+12%</span>\n" +
             "            </div>\n" +
             "\n" +
-            "            <div class=\"refresh currency currencyR" + currency + "\">\n" +
-            "                <div class=\"ch-info\">\n" +
-            "\n" +
-            "                </div>\n" +
-            "            </div>\n" +
-            "        </div>\n";
+            "            <div class = 'refresh'></div>\n" +
+            "        </div>"
+
         return block;
     };
 
@@ -160,7 +126,11 @@
         var walletName = addressInput.value.split(" ")[1];
 
         if(!walletName){
-            walletName = currency + " " + address;
+            walletName = currency.toUpperCase();
+        }
+
+        if(!walletName.length > 34){
+            walletName = walletName.substring(0, 33);
         }
 
         var balanceObj = JSON.parse(httpGet("https://api.blockcypher.com/v1/" + currency + "/main/addrs/" + address));
@@ -206,35 +176,7 @@
     }
 
 
-    //console.log(httpGet("https://api.cryptonator.com/api/ticker/btc-usd"));
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    //
-    // https://api.blockcypher.com/v1/btc/main/addrs/1DEP8i3QJCsomS4BSMY2RpU1upv62aGvhD/balance - btc
-    //
-    // https://api.blockcypher.com/v1/ltc/main/addrs/LNa6sL5isfJa9dBUw6MphEgKk6s7iH6Y62 -ltc
-    //
-    //https://api.blockcypher.com/v1/eth/main/addrs/0xe2C96bBFb9E76F55d1F43E4e2B0FC540023ADb10 -eth
-    //
-    //https://api.blockcypher.com/v1/dash/main/addrs/Xxw3eqm3GDxt5PYs6Npsg1ts8BxYi9Hg6E -dash
-    //
-    //
 
 
 
