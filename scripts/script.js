@@ -11,7 +11,8 @@
 
 
         addButton = doc.querySelector('.plus'),
-        addressInput = doc.querySelector('.newAddress');
+        addressInput = doc.querySelector('.newAddress'),
+        statistic = doc.querySelector('.statisticEmpty');
 
 
 
@@ -75,7 +76,7 @@
 
 
 
-    var crateBlock = function (currency,balance, inDollar, number, walletName ) {
+    var crateBlock = function (currency,balance, inDollar, number, walletName, change, changeColor) {
 
         var block = "<div class = 'block " + currency + "'>\n" +
             "            <div class = 'currencyLogo " + currency +"Logo'></div>\n" +
@@ -88,13 +89,42 @@
                                                             + currency.toUpperCase() + "</span><br class=\"br2\">\n" +
 
             "                <span class ='dollar'>" + inDollar.toString().split('.')[0] + " " + " $</span><br class=\"br2\">\n" +
-            "                <span class = 'delta'>+12%</span>\n" +
+            "                <span class = '" + changeColor + "'>"+ change.substring(0,5) +"</span>\n" +
             "            </div>\n" +
             "\n" +
             "            <div class = 'refresh'></div>\n" +
             "        </div>"
 
         return block;
+    };
+
+
+
+    var statisticCreator = function(){
+
+        var blockArray = document.querySelectorAll('.block'),
+
+            counter = blockArray.length,
+
+            money = document.querySelectorAll('.dollar');
+            sum = 0;
+
+        if(counter <= 1){
+            return "";
+        }
+
+
+        for(var i = 0; i < counter; i++){
+            sum += parseInt(money[i].innerHTML);
+        }
+
+        var block = " <span class = 'total'>Всего. Эквивалент в долларах США : " + sum +" $</span><br>\n" +
+            "        <span class = 'wallets'>Всего кошельков : " + counter +"</span>\n" +
+            "        <div class = 'refreshStatistic'>";
+
+        statistic.setAttribute('class', 'statistic');
+        return block;
+
     };
 
 
@@ -135,7 +165,7 @@
 
         var balanceObj = JSON.parse(httpGet("https://api.blockcypher.com/v1/" + currency + "/main/addrs/" + address));
 
-        if(!balanceObj.final_balance){
+        if(balanceObj.final_balance === undefined){
             addressInput.value = "";
             addressInput.setAttribute('placeholder', 'Ошибка! Неверный адрес кошелька (BTC, ETH, DASH, LTC)');
             return;
@@ -150,13 +180,27 @@
             balance = balanceObj.final_balance * 1e-18;
         }
 
-        var inDollarObj = JSON.parse(httpGet("https://api.cryptonator.com/api/ticker/" + currency +"-usd"));
+        var inDollarObj = JSON.parse(httpGet("https://api.cryptonator.com/api/ticker/" + currency +"-usd")),
 
-        var inDollar = inDollarObj.ticker.price * balance;
+            inDollar = inDollarObj.ticker.price * balance,
 
-        var block = crateBlock(currency, balance, inDollar, address, walletName);
+            change = inDollarObj.ticker.change,
+            changeColor = "";
 
+        if(parseInt(change, 10) < 0 ){
+            changeColor = "red";
+        }
+        else {
+            changeColor = "green";
+        }
+
+
+        var block = crateBlock(currency, balance, inDollar, address, walletName, change, changeColor);
         main.innerHTML += block;
+
+
+        statistic.innerHTML = statisticCreator();
+
 
         addressInput.value = "";
         addressInput.setAttribute('placeholder', 'Введите адрес кошелька (BTC, ETH, DASH, LTC)');

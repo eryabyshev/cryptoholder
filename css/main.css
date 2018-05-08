@@ -114,7 +114,11 @@
     font-size: 27px;
 }
 
-.delta{
+.red{
+    color: red;
+}
+
+.green{
     color: green;
 }
 
@@ -203,6 +207,70 @@
 }
 
 .plus:active{
+    margin-top: 27px;
+    transition: all 0.3s ease-in-out;
+}
+
+
+.statistic{
+    border: 2px solid #6b6e70;
+    background-color: #282f34;
+    height: 120px;
+    border-radius: 7px;
+    width: 95%;
+    margin: auto;
+    margin-top: 20px;
+    color: aliceblue;
+    font-size: 2em;
+    text-align: center;
+}
+
+
+.statisticEmpty{
+
+}
+
+.statistic:hover{
+    border: 3px solid #6b6e70;
+    width: 98%;
+    transition: all 0.4s ease-in-out;
+}
+
+.total{
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.wallets{
+    display: inline-block;
+    margin-top: 15px;
+}
+
+
+.refreshStatistic {
+    float: right;
+    margin-right: 2%;
+    background-image: url(../img/reload.png);
+    background-size: 100%;
+    width: 50px;
+    height: 50px;
+    margin-top: -21px;
+    cursor: pointer;
+}
+
+
+
+.refreshStatistic:hover{
+    transform: rotate(-360deg) scale(1.2);
+    transform:rotate(-360deg);
+    -ms-transform:rotate(-360deg); /* IE 9 */
+    -moz-transform:rotate(-360deg); /* Firefox */
+    -webkit-transform:rotate(-360deg); /* Safari and Chrome */
+    -o-transform:rotate(-360deg); /* Opera */
+    transition: all 0.5s ease-in-out;
+}
+
+.refreshStatistic:active{
     margin-top: 27px;
     transition: all 0.3s ease-in-out;
 }
