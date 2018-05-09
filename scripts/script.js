@@ -12,7 +12,8 @@
 
         addButton = doc.querySelector('.plus'),
         addressInput = doc.querySelector('.newAddress'),
-        statistic = doc.querySelector('.statisticEmpty');
+        statistic = doc.querySelector('.statisticEmpty'),
+        refreshStatistic;
 
 
 
@@ -198,21 +199,34 @@
         addressInput.value = "";
         addressInput.setAttribute('placeholder', 'Введите адрес кошелька (BTC, ETH, DASH, LTC)');
         addLisenerForButton();
+
+        refreshStatistic = document.querySelector('.refreshStatistic');
+
+        if(!refreshStatistic){
+            return;
+        }
+        refreshStatistic.addEventListener('click', refreshAll);
+
+
     };
 
 
 
     var refreshData = function(target){
-        //console.log(target.target);
+
+        var block;
+
+        if(!target.target){
+            block = target;
+        }
+        else{
+            block = target.target.parentNode;
+        }
 
 
 
-        //target.target.parentNode.querySelector('.number').innerHTML = "HJJJJ" ;
 
-
-        var block = target.target.parentNode,
-
-            currency = whatCurrency(block.querySelector('.number').innerHTML),
+        var currency = whatCurrency(block.querySelector('.number').innerHTML),
             address = block.querySelector('.number').innerHTML,
             name = block.querySelector(".name").innerHTML,
 
@@ -259,25 +273,23 @@
 
         block.innerHTML = data;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     };
+
+
+
+    var refreshAll = function(){
+
+
+        var blocks = document.querySelectorAll(".block");
+
+        for(var i = 0; i < blocks.length; i++){
+            refreshData(blocks[i]);
+        }
+
+        statistic.innerHTML = statisticCreator();
+
+
+    }
 
 
 
