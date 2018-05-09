@@ -20,6 +20,28 @@
 
 
 
+    window.onload = function(){
+
+        if(localStorage.currencyInfo === undefined){
+            localStorage.currencyInfo = "";
+        }
+
+        if(localStorage.statisticInfo === undefined){
+            localStorage.statisticInfo = "";
+        }
+
+        main.innerHTML = localStorage.currencyInfo;
+
+        statistic.innerHTML = localStorage.statisticInfo;
+
+        refreshAll();
+
+    };
+
+
+
+
+
 
 
     var itBtc = function(address){
@@ -194,7 +216,12 @@
         var block = crateBlock(currency, balance, inDollar, address, walletName, change, changeColor);
         main.innerHTML += block;
 
+        localStorage.currencyInfo += block;
+
         statistic.innerHTML = statisticCreator();
+
+        localStorage.statisticInfo = statistic.innerHTML;
+
 
         addressInput.value = "";
         addressInput.setAttribute('placeholder', 'Введите адрес кошелька (BTC, ETH, DASH, LTC)');
