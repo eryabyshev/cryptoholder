@@ -130,11 +130,6 @@
 
 
 
-
-
-
-
-
     var addNewBlock = function(){
 
 
@@ -187,7 +182,7 @@
             change = inDollarObj.ticker.change,
             changeColor = "";
 
-        if(parseInt(change, 10) < 0 ){
+        if(change < 0){
             changeColor = "red";
         }
         else {
@@ -198,16 +193,101 @@
         var block = crateBlock(currency, balance, inDollar, address, walletName, change, changeColor);
         main.innerHTML += block;
 
-
         statistic.innerHTML = statisticCreator();
-
 
         addressInput.value = "";
         addressInput.setAttribute('placeholder', 'Введите адрес кошелька (BTC, ETH, DASH, LTC)');
+        addLisenerForButton();
     };
 
 
+
+    var refreshData = function(target){
+        //console.log(target.target);
+
+
+
+        //target.target.parentNode.querySelector('.number').innerHTML = "HJJJJ" ;
+
+
+        var block = target.target.parentNode,
+
+            currency = whatCurrency(block.querySelector('.number').innerHTML),
+            address = block.querySelector('.number').innerHTML,
+            name = block.querySelector(".name").innerHTML,
+
+            balanceObj = JSON.parse(httpGet("https://api.blockcypher.com/v1/" + currency + "/main/addrs/" + address)),
+            balance = 0;
+
+        if(currency !== 'eth'){
+            balance = balanceObj.final_balance * 1e-8;
+        }
+        else{
+            balance = balanceObj.final_balance * 1e-18;
+        };
+
+        var inDollarObj = JSON.parse(httpGet("https://api.cryptonator.com/api/ticker/" + currency +"-usd")),
+
+            inDollar = inDollarObj.ticker.price * balance,
+
+            change = inDollarObj.ticker.change,
+            changeColor = "";
+
+        if(change < 0 ){
+            changeColor = "red";
+        }
+        else {
+            changeColor = "green";
+        }
+
+        var data ="             <div class = 'currencyLogo " + currency +"Logo'></div>\n" +
+        "            <div class = 'info'>\n" +
+        "                <span class='name'>"+ name +"</span><br class = \"br1\">\n" +
+        "                <span class='number'>" + address +"</span>\n" +
+        "            </div>\n" +
+        "            <div class = 'money'>\n" +
+        "                <span class = 'balanc'>" + balance.toString().substring(0, 7) + " "
+        + currency.toUpperCase() + "</span><br class=\"br2\">\n" +
+
+        "                <span class ='dollar'>" + inDollar.toString().split('.')[0] + " " + " $</span><br class=\"br2\">\n" +
+        "                <span class = '" + changeColor + "'>"+ change.substring(0,5) +"</span>\n" +
+        "            </div>\n" +
+        "\n" +
+        "            <div class = 'refresh'></div>\n";
+
+
+
+        block.innerHTML = data;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    };
+
+
+
+
+
+
+
+
     addButton.addEventListener('click', addNewBlock);
+
 
 
 
@@ -217,6 +297,18 @@
         xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
         xmlHttp.send( null );
         return xmlHttp.responseText;
+    }
+
+
+    function addLisenerForButton(){
+
+        var buttons = document.querySelectorAll(".block");
+
+        for(var i = 0; i < buttons.length; i++){
+            buttons[i].addEventListener('click', refreshData);
+        }
+
+
     }
 
 
