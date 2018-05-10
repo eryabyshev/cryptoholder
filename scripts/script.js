@@ -20,6 +20,8 @@
 
 
 
+
+
     window.onload = function(){
 
         if(localStorage.currencyInfo === undefined){
@@ -28,6 +30,7 @@
 
         if(localStorage.statisticInfo === undefined){
             localStorage.statisticInfo = "";
+            return;
         }
 
         main.innerHTML = localStorage.currencyInfo;
@@ -35,6 +38,10 @@
         statistic.innerHTML = localStorage.statisticInfo;
 
         refreshAll();
+        addLisenerForButton();
+
+        refreshStatistic = document.querySelector('.refreshStatistic');
+        refreshStatistic.addEventListener('click', refreshAll);
 
     };
 
@@ -124,6 +131,8 @@
 
 
     var statisticCreator = function(){
+
+        console.log("statisticCreator()");
 
         var blockArray = document.querySelectorAll('.block'),
 
@@ -241,6 +250,8 @@
 
     var refreshData = function(target){
 
+        console.log("refreshData()");
+
         var block;
 
         if(!target.target){
@@ -299,6 +310,13 @@
 
 
         block.innerHTML = data;
+        addLisenerForButton();
+        refreshStatistic = document.querySelector('.refreshStatistic');
+
+        if(!refreshStatistic){
+            return;
+        }
+        refreshStatistic.addEventListener('click', refreshAll);
 
     };
 
@@ -306,7 +324,7 @@
 
     var refreshAll = function(){
 
-
+        console.log("refreshAll()");
         var blocks = document.querySelectorAll(".block");
 
         for(var i = 0; i < blocks.length; i++){
@@ -314,6 +332,10 @@
         }
 
         statistic.innerHTML = statisticCreator();
+        addLisenerForButton();
+
+        refreshStatistic = document.querySelector('.refreshStatistic');
+        refreshStatistic.addEventListener('click', refreshAll);
 
 
     }
@@ -341,7 +363,7 @@
 
     function addLisenerForButton(){
 
-        var buttons = document.querySelectorAll(".block");
+        var buttons = document.querySelectorAll(".refresh");
 
         for(var i = 0; i < buttons.length; i++){
             buttons[i].addEventListener('click', refreshData);
