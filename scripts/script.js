@@ -3,10 +3,6 @@
 (function () {
 
     var doc = document,
-        menu = doc.querySelector('.menu'),
-        subMenu = doc.querySelector('.sub-menu'),
-        context = doc.querySelector(".context"),
-        falldown = doc.querySelector('.falldown'),
         main = doc.querySelector('.main'),
 
 
@@ -14,11 +10,6 @@
         addressInput = doc.querySelector('.newAddress'),
         statistic = doc.querySelector('.statisticEmpty'),
         refreshStatistic;
-
-
-
-
-
 
 
 
@@ -131,8 +122,6 @@
 
 
     var statisticCreator = function(){
-
-        console.log("statisticCreator()");
 
         var blockArray = document.querySelectorAll('.block'),
 
@@ -250,8 +239,6 @@
 
     var refreshData = function(target){
 
-        console.log("refreshData()");
-
         var block;
 
         if(!target.target){
@@ -324,7 +311,6 @@
 
     var refreshAll = function(){
 
-        console.log("refreshAll()");
         var blocks = document.querySelectorAll(".block");
 
         for(var i = 0; i < blocks.length; i++){
@@ -335,14 +321,14 @@
         addLisenerForButton();
 
         refreshStatistic = document.querySelector('.refreshStatistic');
+
+        if(!refreshStatistic){
+            return;
+        }
         refreshStatistic.addEventListener('click', refreshAll);
 
 
-    }
-
-
-
-
+    };
 
 
 
