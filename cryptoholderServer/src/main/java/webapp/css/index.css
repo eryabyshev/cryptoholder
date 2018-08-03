@@ -1,0 +1,39 @@
+body{
+    margin: 0;
+    background-color: #313335;
+}
+
+
+.header{
+    background-image: url(../img/headerBG.png);
+    background-color: #313335;
+    background-size: 100%;
+    background-position-y: 40%;
+    height: 20vh;
+    position: relative;
+}
+.header__name{
+    border: 2px solid;
+    padding: 2px;
+    font-weight: bold;
+    position: absolute;
+    top: 30%;
+    left: 44%;
+}
+.header__tagline{
+    position: absolute;
+    top: 55%;
+    left: 38.5%;
+}
+
+.form-switch{
+    border: 2px solid black;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.form-switch-button{
+    display: inline-block;
+}
+
+
